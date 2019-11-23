@@ -20,5 +20,12 @@ CREATE TABLE `users` ( `id` int NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT
 ### Start echo server
 
 ```
-realize start
+$ docker-compose exec app bash
+
+go run app.go
+```
+
+### Browse to
+```
+http://localhost:1323
 ```
