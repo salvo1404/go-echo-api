@@ -3,18 +3,18 @@ package userHandler
 import (
 	"net/http"
 
-	"github.com/labstack/echo"
 	"app/models"
+	"github.com/labstack/echo"
 )
 
 type (
-    resultLists struct {
-	    Users []user.User `json:"users"`
-    }
+	resultLists struct {
+		Users []user.User `json:"users"`
+	}
 
-    handler struct {
-	    UserModel user.UserModelImpl
-    }
+	handler struct {
+		UserModel user.UserModelImpl
+	}
 )
 
 func NewHandler(u user.UserModelImpl) *handler {
@@ -36,7 +36,7 @@ func (h *handler) GetDetail(c echo.Context) error {
 }
 
 func (h *handler) Save(c echo.Context) error {
-    name := c.FormValue("name")
+	name := c.FormValue("name")
 
 	u := h.UserModel.Store(name)
 	return c.JSON(http.StatusOK, u)

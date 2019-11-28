@@ -1,9 +1,9 @@
 package user
 
 import (
-    "log"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
+	"log"
 )
 
 type (
@@ -43,15 +43,15 @@ func (u *UserModel) FindAll() []User {
 }
 
 func (u *UserModel) Store(name string) User {
-    userInsert := `INSERT INTO users (name) VALUES (?)`
+	userInsert := `INSERT INTO users (name) VALUES (?)`
 
-    result := u.db.MustExec(userInsert, name)
+	result := u.db.MustExec(userInsert, name)
 
-    id, err := result.LastInsertId()
-    if err != nil {
-        log.Fatalln(err)
-    }
+	id, err := result.LastInsertId()
+	if err != nil {
+		log.Fatalln(err)
+	}
 
-    user := User{ID: int(id), Name: name }
-    return user
+	user := User{ID: int(id), Name: name}
+	return user
 }

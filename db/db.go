@@ -3,8 +3,8 @@ package db
 import (
 	"log"
 
-    "github.com/jmoiron/sqlx"
-    _ "github.com/go-sql-driver/mysql"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jmoiron/sqlx"
 )
 
 func DBConnect() *sqlx.DB {
@@ -15,4 +15,3 @@ func DBConnect() *sqlx.DB {
 
 	return db
 }
-
