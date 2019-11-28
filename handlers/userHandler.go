@@ -34,3 +34,10 @@ func (h *handler) GetDetail(c echo.Context) error {
 	u := h.UserModel.FindByID(id)
 	return c.JSON(http.StatusOK, u)
 }
+
+func (h *handler) Save(c echo.Context) error {
+    name := c.FormValue("name")
+
+	u := h.UserModel.Store(name)
+	return c.JSON(http.StatusOK, u)
+}

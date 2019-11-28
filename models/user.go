@@ -1,6 +1,7 @@
 package user
 
 import (
+    "log"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 )
@@ -9,6 +10,7 @@ type (
 	UserModelImpl interface {
 		FindByID(id string) User
 		FindAll() []User
+		Store(name string) User
 	}
 
 	User struct {
@@ -38,4 +40,18 @@ func (u *UserModel) FindAll() []User {
 	users := []User{}
 	u.db.Select(&users, "SELECT * FROM users order by id asc")
 	return users
+}
+
+func (u *UserModel) Store(name string) User {
+    userInsert := `INSERT INTO users (name) VALUES (?)`
+
+    result := u.db.MustExec(userInsert, name)
+
+    id, err := result.LastInsertId()
+    if err != nil {
+        log.Fatalln(err)
+    }
+
+    user := User{ID: int(id), Name: name }
+    return user
 }

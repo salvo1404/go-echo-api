@@ -23,6 +23,7 @@ func main() {
 		return c.String(http.StatusOK, "Go echo API !")
 	})
 	app.GET("/users", h.GetIndex)
+	app.POST("/users", h.Save)
     app.GET("/users/:id", h.GetDetail)
 
     // Application start
