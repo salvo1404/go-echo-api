@@ -14,6 +14,8 @@ docker-compose up -d
 ```
 $ docker-compose exec db bash
 
+mysql -u root -p
+
 CREATE TABLE `users` ( `id` int NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT NULL, PRIMARY KEY (`id`) );
 
 ```
