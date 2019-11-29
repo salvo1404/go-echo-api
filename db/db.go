@@ -4,14 +4,18 @@ import (
 	"log"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/jmoiron/sqlx"
+	"github.com/jinzhu/gorm"
+
+	"app/models"
 )
 
-func DBConnect() *sqlx.DB {
-	db, err := sqlx.Connect("mysql", "go-example:go-example@tcp(db:3306)/go-example")
+func DBConnect() *gorm.DB {
+	db, err := gorm.Open("mysql", "go-example:go-example@tcp(db:3306)/go-example")
 	if err != nil {
 		log.Fatalln(err)
 	}
+
+	db.AutoMigrate(&user.User{})
 
 	return db
 }

@@ -1,7 +1,7 @@
 package user
 
 import (
-	"github.com/jmoiron/sqlx"
+	"github.com/jinzhu/gorm"
 	_ "github.com/lib/pq"
 	"log"
 )
@@ -11,19 +11,20 @@ type (
 		FindByID(id string) User
 		FindAll() []User
 		Store(name string) User
+		Delete(id string) User
 	}
 
 	User struct {
-		ID   int    `json:"id" db:"id"`
+		gorm.Model
 		Name string `json:"name" db:"name"`
 	}
 
 	UserModel struct {
-		db *sqlx.DB
+		db *gorm.DB
 	}
 )
 
-func NewUserModel(db *sqlx.DB) *UserModel {
+func NewUserModel(db *gorm.DB) *UserModel {
 	return &UserModel{
 		db: db,
 	}
@@ -31,27 +32,42 @@ func NewUserModel(db *sqlx.DB) *UserModel {
 
 func (u *UserModel) FindByID(id string) User {
 	user := User{}
-	u.db.Get(&user, "SELECT * FROM users where id = $1 limit 1", id)
+	u.db.First(&user, "id = ?", id)
+
+	result := u.db.First(&user, "id = ?", id)
+	if result.Error != nil {
+		log.Println(result.Error)
+	}
 
 	return user
 }
 
 func (u *UserModel) FindAll() []User {
 	users := []User{}
-	u.db.Select(&users, "SELECT * FROM users order by id asc")
+	u.db.Find(&users)
+
 	return users
 }
 
 func (u *UserModel) Store(name string) User {
-	userInsert := `INSERT INTO users (name) VALUES (?)`
+	user := User{Name: name}
+	result := u.db.Create(&user)
 
-	result := u.db.MustExec(userInsert, name)
-
-	id, err := result.LastInsertId()
-	if err != nil {
-		log.Fatalln(err)
+	if result.Error != nil {
+		log.Println(result.Error)
 	}
 
-	user := User{ID: int(id), Name: name}
+	return user
+}
+
+func (u *UserModel) Delete(id string) User {
+	user := User{}
+	u.db.First(&user, "id = ?", id)
+	result := u.db.Delete(&user)
+
+	if result.Error != nil {
+		log.Println(result.Error)
+	}
+
 	return user
 }

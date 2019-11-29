@@ -2,6 +2,10 @@ settings:
   legacy:
     force: false
     interval: 0s
+  resources:
+    outputs: outputs.log
+    logs: logs.log
+    errors: errors.log
 server:
   status: false
   open: false
@@ -14,15 +18,15 @@ schema:
     fmt:
       status: true
     install:
-      status: true
+      status: false
     run:
       status: true
   watcher:
     extensions:
-    - go
+      - go
     paths:
-    - /
+      - /
     ignored_paths:
-    - .git
-    - .realize
-    - vendor
+      - .git
+      - .realize
+      - vendor

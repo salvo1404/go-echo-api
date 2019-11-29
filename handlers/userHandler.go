@@ -26,12 +26,18 @@ func (h *handler) GetIndex(c echo.Context) error {
 	u := &resultLists{
 		Users: lists,
 	}
+
 	return c.JSON(http.StatusOK, u)
 }
 
 func (h *handler) GetDetail(c echo.Context) error {
 	id := c.Param("id")
 	u := h.UserModel.FindByID(id)
+
+	if (user.User{}) == u {
+		return echo.NewHTTPError(http.StatusNotFound, "User not found")
+	}
+
 	return c.JSON(http.StatusOK, u)
 }
 
@@ -40,4 +46,22 @@ func (h *handler) Save(c echo.Context) error {
 
 	u := h.UserModel.Store(name)
 	return c.JSON(http.StatusOK, u)
+}
+
+func (h *handler) Delete(c echo.Context) error {
+	id := c.Param("id")
+	u := h.UserModel.Delete(id)
+
+	if (user.User{}) == u {
+		return echo.NewHTTPError(http.StatusNotFound, "User ID does not exist")
+	}
+
+	var response struct {
+		Message string `json:"message"`
+		Code    int    `json:"code"`
+	}
+	response.Message = "User Deleted"
+	response.Code = http.StatusOK
+
+	return c.JSON(response.Code, response)
 }
