@@ -3,13 +3,14 @@ package main
 import (
 	//     "log"
 
-	"github.com/labstack/echo"
-	"github.com/labstack/echo/middleware"
 	"net/http"
 
-	"app/db"
-	"app/handlers"
-	"app/models"
+	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
+
+	"github.com/salvo1404/go-echo-api/db"
+	"github.com/salvo1404/go-echo-api/handlers"
+	"github.com/salvo1404/go-echo-api/models"
 )
 
 func main() {
@@ -22,7 +23,7 @@ func main() {
 	// 	}))
 
 	// Dependencies
-	d := db.DBConnect()
+	d := db.Connect()
 	h := userHandler.NewHandler(user.NewUserModel(d))
 
 	// BasicAuth

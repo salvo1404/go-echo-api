@@ -3,8 +3,8 @@ package userHandler
 import (
 	"net/http"
 
-	"app/models"
 	"github.com/labstack/echo"
+	"github.com/salvo1404/go-echo-api/models"
 )
 
 type (
@@ -23,11 +23,8 @@ func NewHandler(u user.UserModelImpl) *handler {
 
 func (h *handler) GetIndex(c echo.Context) error {
 	lists := h.UserModel.FindAll()
-	u := &resultLists{
-		Users: lists,
-	}
 
-	return c.JSON(http.StatusOK, u)
+	return c.JSON(http.StatusOK, lists)
 }
 
 func (h *handler) GetDetail(c echo.Context) error {

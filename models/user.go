@@ -32,7 +32,6 @@ func NewUserModel(db *gorm.DB) *UserModel {
 
 func (u *UserModel) FindByID(id string) User {
 	user := User{}
-	u.db.First(&user, "id = ?", id)
 
 	result := u.db.First(&user, "id = ?", id)
 	if result.Error != nil {
