@@ -87,7 +87,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:71b5fa5808c21e1ab4409949052729cbd1112726f488f12300b406d6a8f7b74d"
+  digest = "1:150468454785131460d758a1e83e2231e4456fbe796d8eb2380b725da399349c"
   name = "github.com/salvo1404/go-echo-api"
   packages = [
     "db",
@@ -95,7 +95,7 @@
     "models",
   ]
   pruneopts = ""
-  revision = "608996d814dfb462e33bbe3e4288e71cbbafe0b9"
+  revision = "57205caf7a4a1a35b6a24ca3d53ba0c0cf1b6c33"
 
 [[projects]]
   digest = "1:857a9ecd5cb13379ecc8f798f6e6b6b574c98b9355657d91e068275f1120aaf7"
@@ -115,30 +115,30 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:c57e5a436bda4c346e7bacb57fb0cf95613bb9b74df09202c1c0b4d6c07b7972"
+  digest = "1:294e6b6b426e0c2c956addcf17151a25906eb56f8d3f75b6103e6e450ed13182"
   name = "golang.org/x/crypto"
   packages = [
     "acme",
     "acme/autocert",
   ]
   pruneopts = ""
-  revision = "ac88ee75c92c889b97e05591e9a39b6480c538b3"
+  revision = "b544559bb6d1b5c62fba4af5e843ff542174f079"
 
 [[projects]]
   branch = "master"
-  digest = "1:1de58c5f172054bd703e3abfc245557214c2c4a798d338eeeaadbe15a34db483"
+  digest = "1:f58e146d19d1af39792c0b599b24b13de51f75b073ba52c1aa658fe535be9120"
   name = "golang.org/x/net"
   packages = ["idna"]
   pruneopts = ""
-  revision = "fc4aabc6c91483155dade6fbb627cc953a723260"
+  revision = "ef20fe5d793301b553005db740f730d87993f778"
 
 [[projects]]
   branch = "master"
-  digest = "1:11845cae7402f689cdea0c89f6979f1e9ec2e15e413a4ebf6ce3d5eaee33aa87"
+  digest = "1:6530ff3e6639af9bab7d2cf1e141c348e63af92058fa64d0660a6e8817d41640"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = ""
-  revision = "bd437916bb0eb726b873ee8e9b2dcf212d32e2fd"
+  revision = "6d18c012aee9febd81bbf9806760c8c4480e870d"
 
 [[projects]]
   digest = "1:740b51a55815493a8d0f2b1e0d0ae48fe48953bf7eaf3fcc4198823bf67768c0"
