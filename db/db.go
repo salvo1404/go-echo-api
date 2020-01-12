@@ -2,11 +2,10 @@ package db
 
 import (
 	"log"
+	"os/user"
 
 	_ "github.com/go-sql-driver/mysql" // Mysql driver
 	"github.com/jinzhu/gorm"
-
-	"github.com/salvo1404/go-echo-api/models"
 )
 
 func Connect() *gorm.DB {

@@ -24,7 +24,7 @@ CREATE TABLE `users` ( `id` int NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT
 ```
 $ docker-compose exec app bash
 
-realize start
+realize start --run
 ```
 
 ### Browse to

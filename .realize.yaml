@@ -19,8 +19,10 @@ schema:
       status: true
     install:
       status: false
+      method: go build -o ./go-echo-api
     run:
       status: true
+      method: ./go-echo-api
   watcher:
     extensions:
       - go
