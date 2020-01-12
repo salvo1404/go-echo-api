@@ -87,7 +87,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:150468454785131460d758a1e83e2231e4456fbe796d8eb2380b725da399349c"
+  digest = "1:2b1a817fccf49582695e658c7995b9c7739114f64ee945eb3736ef88d3badbac"
   name = "github.com/salvo1404/go-echo-api"
   packages = [
     "db",
@@ -95,7 +95,7 @@
     "models",
   ]
   pruneopts = ""
-  revision = "57205caf7a4a1a35b6a24ca3d53ba0c0cf1b6c33"
+  revision = "96d0a60885d7ead759666d880c6accbf98d40c2b"
 
 [[projects]]
   digest = "1:857a9ecd5cb13379ecc8f798f6e6b6b574c98b9355657d91e068275f1120aaf7"

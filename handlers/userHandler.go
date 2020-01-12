@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo"
-	"github.com/salvo1404/go-echo-api/models"
+	user "github.com/salvo1404/go-echo-api/models"
 )
 
 type (
@@ -40,6 +40,10 @@ func (h *handler) GetDetail(c echo.Context) error {
 
 func (h *handler) Save(c echo.Context) error {
 	name := c.FormValue("name")
+
+	if len(name) < 1 {
+		return echo.NewHTTPError(http.StatusBadRequest, "Missing param Name")
+	}
 
 	u := h.UserModel.Store(name)
 	return c.JSON(http.StatusOK, u)

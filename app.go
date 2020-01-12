@@ -1,20 +1,23 @@
 package main
 
 import (
-	//     "log"
+	// "log"
 
+	// "fmt"
 	"net/http"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 
 	"github.com/salvo1404/go-echo-api/db"
-	"github.com/salvo1404/go-echo-api/handlers"
-	"github.com/salvo1404/go-echo-api/models"
+	userHandler "github.com/salvo1404/go-echo-api/handlers"
+	user "github.com/salvo1404/go-echo-api/models"
 )
 
 func main() {
 	app := echo.New()
+
+	// fmt.Println("ciao")
 
 	// Config Logger
 	app.Use(middleware.Logger())
