@@ -9,16 +9,6 @@ Simple API example built in go echo
 docker-compose up -d
 ```
 
-### Create DB table
-
-```
-$ docker-compose exec db bash
-
-mysql -u root -p
-
-CREATE TABLE `users` ( `id` int NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT NULL, PRIMARY KEY (`id`) );
-
-```
 ### Start echo server
 
 ```

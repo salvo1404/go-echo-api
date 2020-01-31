@@ -10,13 +10,14 @@ type (
 	UserModelImpl interface {
 		FindByID(id string) User
 		FindAll() []User
-		Store(name string) User
+		Store(name string, email string) User
 		Delete(id string) User
 	}
 
 	User struct {
 		gorm.Model
-		Name string `json:"name" db:"name"`
+		Name  string `json:"name" db:"name"`
+		Email string `json:"email" db:"email"`
 	}
 
 	UserModel struct {
@@ -48,8 +49,8 @@ func (u *UserModel) FindAll() []User {
 	return users
 }
 
-func (u *UserModel) Store(name string) User {
-	user := User{Name: name}
+func (u *UserModel) Store(name string, email string) User {
+	user := User{Name: name, Email: email}
 	result := u.db.Create(&user)
 
 	if result.Error != nil {

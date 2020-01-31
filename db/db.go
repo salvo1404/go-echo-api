@@ -1,8 +1,8 @@
 package db
 
 import (
+	user "github.com/salvo1404/go-echo-api/models"
 	"log"
-	"os/user"
 
 	_ "github.com/go-sql-driver/mysql" // Mysql driver
 	"github.com/jinzhu/gorm"

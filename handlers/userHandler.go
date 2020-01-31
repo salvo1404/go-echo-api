@@ -40,12 +40,16 @@ func (h *handler) GetDetail(c echo.Context) error {
 
 func (h *handler) Save(c echo.Context) error {
 	name := c.FormValue("name")
+	email := c.FormValue("email")
 
 	if len(name) < 1 {
-		return echo.NewHTTPError(http.StatusBadRequest, "Missing param Name")
+		return echo.NewHTTPError(http.StatusBadRequest, "Name is required")
+	}
+	if len(email) < 1 {
+		return echo.NewHTTPError(http.StatusBadRequest, "Email is required")
 	}
 
-	u := h.UserModel.Store(name)
+	u := h.UserModel.Store(name, email)
 	return c.JSON(http.StatusOK, u)
 }
 
