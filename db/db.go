@@ -4,12 +4,25 @@ import (
 	user "github.com/salvo1404/go-echo-api/models"
 	"log"
 
-	_ "github.com/go-sql-driver/mysql" // Mysql driver
+	"github.com/go-sql-driver/mysql" // Mysql driver
 	"github.com/jinzhu/gorm"
 )
 
 func Connect() *gorm.DB {
-	db, err := gorm.Open("mysql", "go-example:go-example@tcp(db:3306)/go-example?parseTime=true")
+	DBMS := "mysql"
+	mySQLConfig := &mysql.Config{
+		User:                 "go-example",
+		Passwd:               "go-example",
+		Net:                  "tcp",
+		Addr:                 "db:3306",
+		DBName:               "go-example",
+		AllowNativePasswords: true,
+		Params: map[string]string{
+			"parseTime": "true",
+		},
+	}
+
+	db, err := gorm.Open(DBMS, mySQLConfig.FormatDSN())
 	if err != nil {
 		log.Fatalln(err)
 	}
