@@ -1,9 +1,11 @@
 package user
 
 import (
+	"log"
+	"time"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/lib/pq"
-	"log"
 )
 
 type (
@@ -15,9 +17,13 @@ type (
 	}
 
 	User struct {
-		gorm.Model
-		Name  string `json:"name" db:"name"`
-		Email string `json:"email" db:"email"`
+		// gorm.Model
+		ID        uint       `gorm:"primary_key" json:"id" db:"id"`
+		Name      string     `json:"name" db:"name"`
+		Email     string     `json:"email" db:"email"`
+		CreatedAt time.Time  `json:"created_at" db:"created_at"`
+		UpdatedAt time.Time  `json:"updated_at" db:"updated_at"`
+		DeletedAt *time.Time `json:"deleted_at" db:"deleted_at"`
 	}
 
 	UserModel struct {
