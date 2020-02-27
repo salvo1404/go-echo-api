@@ -10,12 +10,48 @@
   version = "v3.2.0"
 
 [[projects]]
+  digest = "1:b0824d53526366e5108a0537bc37c99c09bd28344cd7a5a5e6f03030eb63ff51"
+  name = "github.com/friendsofgo/graphiql"
+  packages = ["."]
+  pruneopts = ""
+  revision = "cda92ee46d11a39c721305a9fc01a5133c53b88c"
+  version = "v0.2.2"
+
+[[projects]]
   digest = "1:a67f9275b42e8bb95ba38f705062175ef65538bcdc107e0771763e6cde80c3c3"
   name = "github.com/go-sql-driver/mysql"
   packages = ["."]
   pruneopts = ""
   revision = "17ef3dd9d98b69acec3e85878995ada9533a9370"
   version = "v1.5.0"
+
+[[projects]]
+  digest = "1:a99424225c72cbc9da15f82688e97ce4f77b8aafd52f7e818892fdebd81e0899"
+  name = "github.com/graphql-go/graphql"
+  packages = [
+    ".",
+    "gqlerrors",
+    "language/ast",
+    "language/kinds",
+    "language/lexer",
+    "language/location",
+    "language/parser",
+    "language/printer",
+    "language/source",
+    "language/typeInfo",
+    "language/visitor",
+  ]
+  pruneopts = ""
+  revision = "02caa8943d64d9cd60bd67f2bc163676716bb963"
+  version = "v0.7.9"
+
+[[projects]]
+  digest = "1:a9b751be0c7ee70ea76159d441e7e162cafade014f54ca115a9f797063d9fbfe"
+  name = "github.com/graphql-go/handler"
+  packages = ["."]
+  pruneopts = ""
+  revision = "c1267356e6539d975e83bbea383c2bbb861dce5b"
+  version = "v0.2.3"
 
 [[projects]]
   digest = "1:282afc5172b5e118c47d7c61b054dfec00e69d137912f9f7b636a045cd4adb80"
@@ -87,15 +123,17 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:fc0d117d9db3d484a48ce3a56bd8fc1b07bb9ed06934fc5c4dba66ea9f75a762"
+  digest = "1:d7673099555cfe76c9b530bdcdfe240a1998789157eeedc479051b93689e35ad"
   name = "github.com/salvo1404/go-echo-api"
   packages = [
     "db",
+    "graphql",
+    "graphql/field",
     "handlers",
     "models",
   ]
   pruneopts = ""
-  revision = "80acdb96f8f7e63702984d390524e5b2680fade4"
+  revision = "2ab5a8183cc90e6f11849f86813bde8f7d2294dc"
 
 [[projects]]
   digest = "1:857a9ecd5cb13379ecc8f798f6e6b6b574c98b9355657d91e068275f1120aaf7"
@@ -169,12 +207,17 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/friendsofgo/graphiql",
     "github.com/go-sql-driver/mysql",
+    "github.com/graphql-go/graphql",
+    "github.com/graphql-go/handler",
     "github.com/jinzhu/gorm",
     "github.com/labstack/echo",
     "github.com/labstack/echo/middleware",
     "github.com/lib/pq",
     "github.com/salvo1404/go-echo-api/db",
+    "github.com/salvo1404/go-echo-api/graphql",
+    "github.com/salvo1404/go-echo-api/graphql/field",
     "github.com/salvo1404/go-echo-api/handlers",
     "github.com/salvo1404/go-echo-api/models",
   ]
