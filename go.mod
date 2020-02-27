@@ -6,7 +6,7 @@ require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/friendsofgo/graphiql v0.2.2
 	github.com/go-sql-driver/mysql v1.5.0
-	github.com/graphql-go/graphql v0.7.8
+	github.com/graphql-go/graphql v0.7.9
 	github.com/graphql-go/handler v0.2.3
 	github.com/jinzhu/gorm v1.9.12
 	github.com/jinzhu/inflection v1.0.0
@@ -15,6 +15,7 @@ require (
 	github.com/lib/pq v1.3.0
 	github.com/mattn/go-colorable v0.1.4
 	github.com/mattn/go-isatty v0.0.11
+	github.com/sirupsen/logrus v1.4.2 // indirect
 	github.com/valyala/bytebufferpool v1.0.0
 	github.com/valyala/fasttemplate v1.1.0
 	golang.org/x/crypto v0.0.0-20200109152110-61a87790db17
