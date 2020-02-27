@@ -3,6 +3,7 @@ module github.com/salvo1404/go-echo-api
 go 1.13
 
 require (
+	github.com/99designs/gqlgen v0.10.2
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/friendsofgo/graphiql v0.2.2
 	github.com/go-sql-driver/mysql v1.5.0
@@ -17,6 +18,7 @@ require (
 	github.com/mattn/go-isatty v0.0.11
 	github.com/valyala/bytebufferpool v1.0.0
 	github.com/valyala/fasttemplate v1.1.0
+	github.com/vektah/gqlparser v1.2.0
 	golang.org/x/crypto v0.0.0-20200109152110-61a87790db17
 	golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
 	golang.org/x/sys v0.0.0-20200107162124-548cf772de50
